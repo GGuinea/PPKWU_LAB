@@ -12,6 +12,7 @@ class RevService(Resource):
         result = {'data': inputString[::-1]}
         return jsonify(result)
 
+api.add_resource(RevService, '/rev/<inputString>')
 
 if __name__ == '__main__':
     app.run(port='25000')
