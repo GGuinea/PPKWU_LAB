@@ -32,6 +32,52 @@ Response:
 }
 ```
 
+## lab2 - String Api 
+
+Applictaion check if provided string contains:
+* lower letter
+* upper letter
+* special sign
+* digit
+
+### Starting server
+
+```
+python3 server.py
+```
+Output:
+```
+* Running on http://127:0.0.1:25000/
+```
+
+### Make a request
+
+```
+curl http://127:0.0.1:25000/api/check/SimpleString
+```
+Response:
+```
+{
+    "digit": false,
+    "lowerCase": true,
+    "specialSign": false,
+    "upperCase": true
+}
+```
+
+```
+curl http://127:0.0.1:25000/api/check/Simple123String%
+```
+Response:
+```
+{
+    "digit": true,
+    "lowerCase": true,
+    "specialSign": true,
+    "upperCase": true
+}
+```
+
 ## License
 
 This project is licensed under the MIT License.
