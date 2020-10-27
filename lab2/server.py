@@ -2,9 +2,18 @@ from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
-@app.route('/api/check/<input>', methods=['GET'])
+@app.route('/api/check/<string:input>')
 def chekcOutput(input):
-    lowerLetter, upperLetter, specialSign = false
+    lowerCase = False
+    upperCase = False
+    digit = False
+    specialSign = False
+
+    return jsonify({'lowerCase': lowerCase,
+                    'upperCase': upperCase,
+                    'digit': digit,
+                    'specialSign': specialSign
+                    })
 
 if __name__ == '__main__':
     app.run(port=25000)
