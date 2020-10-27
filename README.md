@@ -15,6 +15,7 @@ Applictaion provides simple REV service
 ```
 python3 server.py
 ```
+Output:
 ```
 * Running on http://127:0.0.1:25000/
 ```
@@ -24,6 +25,7 @@ python3 server.py
 ```
 curl http://127:0.0.1:25000/rev/SimpleString
 ```
+Response:
 ```
 {
     "data": "gnirtSelpmiS"
@@ -32,5 +34,5 @@ curl http://127:0.0.1:25000/rev/SimpleString
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License.
 
