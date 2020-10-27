@@ -6,6 +6,12 @@ This repo contains PPKWU task's solutions, where we are building REST API servic
 
 These documentation will show you how to use created REST API services.
 
+### Prerquisites
+Flask:
+```
+pip install Flask
+```
+
 ## lab1 - Rest Api Rev service
 
 Applictaion provides simple REV service
