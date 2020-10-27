@@ -50,7 +50,7 @@ Output:
 * Running on http://127:0.0.1:25000/
 ```
 
-### Make a request
+### Make a request #1
 
 ```
 curl http://127:0.0.1:25000/api/check/SimpleString
@@ -64,6 +64,8 @@ Response:
     "upperCase": true
 }
 ```
+
+### Make a request #2
 
 ```
 curl http://127:0.0.1:25000/api/check/Simple123String%
