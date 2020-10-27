@@ -3,7 +3,7 @@ from flask import Flask, jsonify, request
 app = Flask(__name__)
 
 @app.route('/api/check/<string:input>')
-def chekcOutput(input):
+def checkOutput(input):
     lowerCase = False
     upperCase = False
     digit = False
