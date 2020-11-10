@@ -9,9 +9,10 @@ soup = BeautifulSoup(page.content, 'html.parser')
 print(soup)
 days = soup.find_all('a')
 day = 2
-while day <= len(days)-1:
-    print(days[day].getText())
-    day += 1
+lastDay = len(days)-1
 
 events = soup.find_all('a', class_='active')
 print(events[0]['href'])
+
+desc = soup.find_all(class_='InnerBox')
+print(desc[0].getText())
