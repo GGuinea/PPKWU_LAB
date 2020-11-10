@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, request
 from bs4 import BeautifulSoup
+from ics import Calendar, Event
 import requests
 import urllib3
 import urllib
@@ -16,3 +17,15 @@ print(events[0]['href'])
 
 desc = soup.find_all(class_='InnerBox')
 print(desc[0].getText())
+
+c = Calendar()
+e = Event()
+for i in range(len(events)):
+    e.name = desc[i].getText()
+    if int(events[i].getText()) < 10:
+        e.begin = '2020-10-0' + events[i].getText() + ' 00:00:00'
+    else:
+        e.begin = '2020-10-' + events[i].getText() + ' 00:00:00'
+    c.events.add(e)
+
+print(c.events)
