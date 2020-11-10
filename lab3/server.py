@@ -19,8 +19,8 @@ desc = soup.find_all(class_='InnerBox')
 print(desc[0].getText())
 
 c = Calendar()
-e = Event()
 for i in range(len(events)):
+    e = Event()
     e.name = desc[i].getText()
     if int(events[i].getText()) < 10:
         e.begin = '2020-10-0' + events[i].getText() + ' 00:00:00'
@@ -28,4 +28,5 @@ for i in range(len(events)):
         e.begin = '2020-10-' + events[i].getText() + ' 00:00:00'
     c.events.add(e)
 
-print(c.events)
+with open('my.ics', 'w') as my_file:
+    my_file.writelines(c)
