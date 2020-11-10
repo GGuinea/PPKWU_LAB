@@ -7,7 +7,7 @@ import urllib
 
 
 app = Flask(__name__)
-
+app.config["calendar"] = "ics"
 @app.route('/api/check/<string:year>/<sting:month>')
 def checkOutput(year, month):
     page = requests.get("http://www.weeia.p.lodz.pl/pliki_strony_kontroler/kalendarz.php?rok="+year+"&miesiac="+month)
@@ -31,6 +31,8 @@ def checkOutput(year, month):
 
     with open('my.ics', 'w') as my_file:
         my_file.writelines(c)
+
+    return send_from_directory(app.config["calendar"], 'calendar', as_attachement=True)
 
 if __name__ == '__main__':
     app.run(port=25000)
