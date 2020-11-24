@@ -35,10 +35,11 @@ def checkOutput(year, month):
             e.make_all_day()
         c.events.add(e)
 
-    with open('my.ics', 'w') as my_file:
+    filename = year + month + ".ics"
+    with open(filename, 'w') as my_file:
         my_file.writelines(c)
 
-    return send_file("my.ics", as_attachment=True)
+    return send_file(filename, as_attachment=True)
 
 if __name__ == '__main__':
     app.run(port=25000)
