@@ -46,16 +46,6 @@ Applictaion check if provided string contains:
 * special sign
 * digit
 
-### Starting server
-
-```
-python3 server.py
-```
-Output:
-```
-* Running on http://127:0.0.1:25000/
-```
-
 ### Make a request #1
 
 ```
@@ -86,22 +76,11 @@ Response:
 }
 ```
 
-## License
-
-## lab2 - Mobile WEEIA Calendar
+## lab3 - Mobile WEEIA Calendar
 
 Application is designed for creating 'ics' files, that could be imported to different calendar apps.
 Events are parsed from: http://www.weeia.p.lodz.pl/ 
 
-### Starting server
-
-```
-python3 server.py
-```
-Output:
-```
-* Running on http://127:0.0.1:25000/
-```
 ### Request syntax
 ```
 curl http://127:0.0.1:25000/api/calendar/<year>/<month>
