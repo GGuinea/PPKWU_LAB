@@ -9,7 +9,7 @@ import urllib
 app = Flask(__name__)
 app.config["calendar"] = "/my.ics"
 
-@app.route('/api/check/<string:year>/<string:month>')
+@app.route('/api/calendar/<string:year>/<string:month>')
 def checkOutput(year, month):
     if int(month) < 10:
         month = '0' + month
