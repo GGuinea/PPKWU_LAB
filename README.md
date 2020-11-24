@@ -84,6 +84,9 @@ Events are parsed from: http://www.weeia.p.lodz.pl/
 ### Request syntax
 ```
 curl http://127:0.0.1:25000/api/calendar/<year>/<month>
+year format: YYYY, example: 2020
+month format: MM, example: 10
+month format: M, example: 1
 ```
 
 ### Make a request #1
