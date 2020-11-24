@@ -107,7 +107,7 @@ SUMMARY:First Step to Fields Medal
 .
 END:VCALENDAR
 
-Via browser, server will produce file named: "my.ics";
+Via browser, server will produce file named: "<year><month>.ics";
 ```
 
 This project is licensed under the MIT License.
