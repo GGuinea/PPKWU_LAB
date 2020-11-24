@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, send_file 
 from bs4 import BeautifulSoup
 from ics import Calendar, Event
 import requests
@@ -7,7 +7,8 @@ import urllib
 
 
 app = Flask(__name__)
-app.config["calendar"] = "ics"
+app.config["calendar"] = "/my.ics"
+
 @app.route('/api/check/<string:year>/<string:month>')
 def checkOutput(year, month):
     if int(month) < 10:
@@ -35,7 +36,7 @@ def checkOutput(year, month):
     with open('my.ics', 'w') as my_file:
         my_file.writelines(c)
 
-    return send_from_directory(app.config["calendar"], 'calendar', as_attachement=True)
+    return send_file("my.ics", as_attachment=True)
 
 if __name__ == '__main__':
     app.run(port=25000)
