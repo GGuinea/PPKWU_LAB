@@ -29,8 +29,10 @@ def checkOutput(year, month):
         e.name = desc[i].getText()
         if int(events[i].getText()) < 10:
             e.begin = year + '-' + month + '-0' + events[i].getText() + ' 00:00:00'
+            e.make_all_day()
         else:
             e.begin = year + '-' + month + '-' + events[i].getText() + ' 00:00:00'
+            e.make_all_day()
         c.events.add(e)
 
     with open('my.ics', 'w') as my_file:
