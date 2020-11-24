@@ -88,5 +88,45 @@ Response:
 
 ## License
 
+## lab2 - Mobile WEEIA Calendar
+
+Application is designed for creating 'ics' files, that could be imported to different calendar apps.
+Events are parsed from: http://www.weeia.p.lodz.pl/ 
+
+### Starting server
+
+```
+python3 server.py
+```
+Output:
+```
+* Running on http://127:0.0.1:25000/
+```
+### Request syntax
+```
+curl http://127:0.0.1:25000/api/calendar/<year>/<month>
+```
+
+### Make a request #1
+
+```
+curl http://127:0.0.1:25000/api/calendar/2020/3
+```
+Response:
+```
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20200309
+SUMMARY:First Step to Fields Medal
+.
+.
+.
+END:VCALENDAR
+
+Via browser, server will produce file named: "my.ics";
+```
+
 This project is licensed under the MIT License.
 
