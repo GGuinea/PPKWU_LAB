@@ -58,3 +58,8 @@ for company in companies:
 for card in vcards:
     print(card.prettyPrint())
     print(card.serialize())
+
+filename = "example.vcard"
+with open (filename, 'w') as my_file:
+    my_file.writelines(vcards[1].serialize())
+
