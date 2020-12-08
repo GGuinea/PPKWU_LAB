@@ -5,6 +5,7 @@ import requests
 import urllib3
 import json
 import urllib
+import vobject
 
 class Company:
     name = ""
@@ -33,6 +34,15 @@ def checkOutput(name):
         jsonn = json.loads(script.string)
         companies.append(Company(jsonn['name'], jsonn['telephone'], jsonn['email'], jsonn['url'], jsonn['address']))
 
+def create_vCard():
+    card = vobject.vCard()
+    card.add('n')
+    card.n.value = vobject.vcard.Name("Family")
+    card.add('fn')
+    card.fn.value = "kto drugie"
+    print(card.prettyPrint())
+
+
 checkOutput('Hydraulik')
-print(companies[24].name)
+create_vCard()
 
