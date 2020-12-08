@@ -34,15 +34,27 @@ def checkOutput(name):
         jsonn = json.loads(script.string)
         companies.append(Company(jsonn['name'], jsonn['telephone'], jsonn['email'], jsonn['url'], jsonn['address']))
 
-def create_vCard():
+def create_vCard(company):
     card = vobject.vCard()
     card.add('n')
-    card.n.value = vobject.vcard.Name("Family")
+    card.n.value = vobject.vcard.Name(company.name)
     card.add('fn')
-    card.fn.value = "kto drugie"
-    print(card.prettyPrint())
+    card.fn.value = company.name
+    card.add('email')
+    card.email.value = company.email
+    card.email.type_param = 'INTERNET'
+    card.add('org')
+    card.org.value = [company.name]
+    card.add('tel')
+    card.tel.value = company.telephone
+    return card
 
 
 checkOutput('Hydraulik')
-create_vCard()
+vcards = []
+for company in companies:
+    vcards.append(create_vCard(company))
 
+for card in vcards:
+    print(card.prettyPrint())
+    print(card.serialize())
