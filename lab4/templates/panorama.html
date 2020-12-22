@@ -1,0 +1,9 @@
+<html>
+    <head>
+    </head>
+    <body>
+        {% for card in cards %}
+        <div><p>{{ card.n.value}} konakt: <button onclick="window.open('tel:{{card.tel.value}}');">KONTAKT</button></p></div>
+        {% endfor %}
+    </body>
+</html>
