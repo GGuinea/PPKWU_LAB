@@ -55,11 +55,13 @@ vcards = []
 for company in companies:
     vcards.append(create_vCard(company))
 
+i = 0
 for card in vcards:
-    print(card.prettyPrint())
+    print("NAME:",card.n.value)
     print(card.serialize())
+    filename = "vcf/company"+str(i)+".vcf"
+    i+=1
+    with open (filename, 'w') as my_file:
+        my_file.writelines(card.serialize())
 
-filename = "example.vcard"
-with open (filename, 'w') as my_file:
-    my_file.writelines(vcards[1].serialize())
 
