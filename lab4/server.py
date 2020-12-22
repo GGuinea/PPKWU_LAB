@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, send_file 
+from flask import Flask, jsonify, request, send_file, render_template 
 from bs4 import BeautifulSoup
 from ics import Calendar, Event
 import requests
@@ -41,22 +41,22 @@ def create_vCard(company):
     return card
 
 
+vcards = []
 #checkOutput('Hydraulik')
 def save_Vcards():
-    vcards = []
     for company in companies:
         vcards.append(create_vCard(company))
 
     i = 0
     for card in vcards:
-        print("NAME:",card.n.value)
-        print(card.serialize())
+        #print("NAME:",card.n.value)
+        #print(card.serialize())
         filename = "vcf/company"+str(i)+".vcf"
         i+=1
         with open (filename, 'w') as my_file:
             my_file.writelines(card.serialize())
 
-@app.route('api/vcard/<string:name>')
+@app.route('/api/vcard/<string:name>')
 def checkOutput(name):
     page = requests.get("https://panoramafirm.pl/szukaj?k="+name+"&l=")
     soup = BeautifulSoup(page.content, 'html.parser')
@@ -73,4 +73,8 @@ def checkOutput(name):
 
 
 if __name__ == '__main__':
+    checkOutput("Hydraulik")
+    #with app.app_context():
+    #    rendered = render_template('panorama.html', cards = vcards)
+    #    print(rendered)
     app.run(port=25000)
